@@ -6,8 +6,472 @@
 <title>Guia de Empreendedores</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#122238;
+    --navy-2:#1a3352;
+    --paper:#FBF7EE;
+    --ink:#1C2A3A;
+    --ink-soft:#5B6675;
+    --gold:#D6A94A;
+    --gold-deep:#B8862F;
+    --teal:#3E7C74;
+    --teal-deep:#2C5A54;
+    --line:#E4DCC5;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--navy);
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(214,169,74,0.10), transparent 45%),
+      radial-gradient(circle at 90% 15%, rgba(62,124,116,0.18), transparent 40%);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    padding:52px 20px 34px;
+    text-align:center;
+    color:var(--paper);
+    position:relative;
+  }
+  header .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-size:11.5px;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  header h1{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:clamp(34px,8vw,54px);
+    line-height:1.03;
+    margin:0 0 14px;
+  }
+  header h1 em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--gold);
+  }
+  header p{
+    max-width:520px;
+    margin:0 auto;
+    color:#C7D0DB;
+    font-size:15px;
+    line-height:1.55;
+  }
+
+  /* ---------- INDEX / ROLODEX TABS ---------- */
+  nav.index{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--navy-2);
+    border-bottom:1px solid rgba(214,169,74,.35);
+    padding:0 12px;
+    overflow-x:auto;
+    white-space:nowrap;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+  }
+  nav.index::-webkit-scrollbar{display:none;}
+  nav.index a{
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:.04em;
+    color:#B9C3D0;
+    text-decoration:none;
+    padding:14px 13px;
+    border-bottom:3px solid transparent;
+    transition:.15s;
+  }
+  nav.index a:hover, nav.index a:active{
+    color:var(--gold);
+    border-bottom-color:var(--gold);
+  }
+
+  /* ---------- MAIN ---------- */
+  main{
+    max-width:900px;
+    margin:0 auto;
+    padding:36px 16px 80px;
+  }
+
+  section.cat{
+    scroll-margin-top:52px;
+    margin-bottom:44px;
+  }
+  .cat-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:18px;
+    padding-left:2px;
+  }
+  .cat-tab{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    font-weight:700;
+    color:var(--navy);
+    background:var(--gold);
+    padding:5px 10px 4px;
+    border-radius:3px 3px 0 0;
+    letter-spacing:.03em;
+  }
+  .cat-head h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:26px;
+    color:var(--paper);
+    margin:0;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:14px;
+  }
+
+  .card{
+    background:var(--paper);
+    border-radius:10px;
+    padding:18px 18px 16px;
+    box-shadow:0 1px 0 rgba(0,0,0,.04), 0 8px 20px -12px rgba(0,0,0,.35);
+    border-left:4px solid var(--teal);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .card .biz{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:18px;
+    line-height:1.2;
+    color:var(--ink);
+  }
+  .card .who{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-top:-4px;
+  }
+  .card .service{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    line-height:1.4;
+  }
+  .card .actions{
+    margin-top:6px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .btn{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:12.5px;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:20px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .btn-wa{
+    background:var(--teal);
+    color:#fff;
+  }
+  .btn-wa:hover{background:var(--teal-deep);}
+  .btn-ig{
+    background:transparent;
+    color:var(--gold-deep);
+    border-color:var(--gold);
+  }
+  .btn-site{
+    background:transparent;
+    color:var(--navy);
+    border-color:var(--navy);
+  }
+  .phone{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- FOOTER / NOTE ---------- */
+  .note{
+    max-width:900px;
+    margin:0 auto 40px;
+    padding:16px 18px;
+    background:rgba(255,255,255,.05);
+    border:1px dashed rgba(214,169,74,.4);
+    border-radius:10px;
+    color:#C7D0DB;
+    font-size:12.5px;
+    line-height:1.6;
+  }
+  .others{
+    max-width:900px;
+    margin:0 auto 20px;
+    padding:0 16px;
+  }
+  .others h2{
+    font-family:'Fraunces',serif;
+    color:var(--paper);
+    font-size:20px;
+    margin-bottom:10px;
+  }
+  .others-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:8px;
+    font-size:12.5px;
+    color:#C7D0DB;
+  }
+  .others-list div{
+    background:rgba(255,255,255,.06);
+    border-radius:6px;
+    padding:8px 10px;
+  }
+  .others-list span{
+    display:block;
+    font-family:'JetBrains Mono',monospace;
+    color:var(--gold);
+    font-size:11px;
+    margin-top:2px;
+  }
+
+  footer{
+    text-align:center;
+    color:#8592A3;
+    font-size:11.5px;
+    padding:20px 20px 44px;
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  @media(max-width:480px){
+    header{padding:40px 16px 24px;}
+    .cat-head h2{font-size:22px;}
+  }
+</style>
 </head>
 <body>
-<p>placeholder</p>
+
+<header>
+  <div class="eyebrow">Rede de Empreendedores · Grupo do WhatsApp</div>
+  <h1>Precisa de algo?<br><em>A gente tem no grupo.</em></h1>
+  <p>Guia rápido de contatos indicados por pessoas do nosso grupo. Toque na categoria para pular direto até ela, ou role a página. Antes de fechar negócio, combine tudo direto com cada profissional.</p>
+</header>
+
+<nav class="index" id="indexNav"></nav>
+
+<main id="main"></main>
+
+<div class="others" id="othersWrap" style="display:none;">
+  <h2>Também estão no grupo (ramo em definição)</h2>
+  <div class="others-list" id="othersList"></div>
+</div>
+
+<div class="note">
+  ✅ Dados reunidos a partir das artes/cartões enviados no grupo e da lista de inscrição do encontro de empreendedores.<br>
+  🙅 Números não são repetidos: quando dois cadastros bateram o mesmo telefone, foram unidos em um único contato.<br>
+  ✍️ Achou um dado errado ou quer entrar na lista? É só avisar no grupo que a gente atualiza.
+</div>
+
+<footer>GUIA ATUALIZADO EM AGOSTO / 2026 — FEITO PELO E PARA O GRUPO</footer>
+
+<script>
+const DATA = [
+  {
+    cat:"Casa, Reforma & Decoração", tab:"01",
+    items:[
+      {biz:"Filadélfia Decorações", who:"Claudio José Freitas", service:"Sofás, cortinas e persianas sob medida · manutenção e reforma em geral", phone:"11 3931-3534", ig:"filadelfiadecoracoes"},
+      {biz:"Edilson Chaves — \"Baixinho\"", service:"Manutenção e reforma básica", phone:"11 96269-3617"},
+      {biz:"Rogério Juren", service:"Manutenção e instalação predial · portões, interfone, câmeras, alarmes", phone:"11 99112-5638"},
+      {biz:"Alexandre Almeida", service:"Móveis planejados", phone:"11 96045-7182"},
+      {biz:"Presente Ideal", who:"Ingrid Benigno de Oliveira", service:"Presentes e decoração", phone:"11 93148-6025", ig:"presente_ideal2025"},
+    ]
+  },
+  {
+    cat:"Contabilidade, Seguros & Crédito", tab:"02",
+    items:[
+      {biz:"Gustavo Henrique Contabilidade", service:"Gestão contábil e tributária · +24 anos de experiência", phone:"11 96783-9803", extra:"gustahenriqcont@gmail.com"},
+      {biz:"Anderson F. Camargo", service:"Contabilidade", phone:"11 94241-0770"},
+      {biz:"Thais Sene", service:"Contabilidade", phone:"11 98681-4291"},
+      {biz:"Ebenezer CS Contabilidade", service:"Contabilidade", ig:"ebenezercscontabilidade"},
+      {biz:"Camila Moraes de Oliveira Rocha", service:"Seguros", phone:"11 98575-1309"},
+      {biz:"PMG Promotora", service:"Empréstimo consignado · aposentado/pensionista INSS, servidor público, FGTS", phone:"11 96162-0772"},
+    ]
+  },
+  {
+    cat:"Imóveis", tab:"03",
+    items:[
+      {biz:"Martha Regina Pantarotto Candil", service:"Corretora de imóveis", phone:"11 98292-6515"},
+      {biz:"Milton Viegas", service:"Corretor de imóveis · Imobiliária", phone:"11 97719-5388", channel:"https://whatsapp.com/channel/0029VbBW36aC6ZvcZgyJzh0m"},
+      {biz:"Rosalia Vieira de Vasconcelos", service:"Corretora de imóveis · parte administrativa e contábil", phone:"11 96625-9293"},
+    ]
+  },
+  {
+    cat:"Viagens & Turismo", tab:"04",
+    items:[
+      {biz:"NMN Turismo", who:"Marilsen", service:"Passagens, hospedagem, pacotes nacionais e internacionais", phone:"11 96868-7443", ig:"nmn_turismo", extra:"turismonmn@gmail.com"},
+      {biz:"Wagner de Oliveira", service:"Agente de viagens · aéreo, traslado, hospedagem, aluguel de carro", phone:"11 98024-1333"},
+    ]
+  },
+  {
+    cat:"Transporte & Mobilidade", tab:"05",
+    items:[
+      {biz:"Nicola Utilitários", who:"Claudionor \"Claudinho\"", service:"Compra e venda de veículos utilitários", phone:"11 94751-1824"},
+      {biz:"MobileCar", service:"Locação de carros, scooters elétricas, jet-ski e lancha", phone:"11 96023-0425"},
+    ]
+  },
+  {
+    cat:"Saúde & Bem-estar", tab:"06",
+    items:[
+      {biz:"Terapeuta Agnaldo", service:"Psicanalista clínico · atendimento presencial ou online", phone:"11 96666-8386"},
+      {biz:"Eli de Castro & Taitiane Poltieire", service:"Pilates, fisioterapia e massagem", phone:"11 94018-6272"},
+      {biz:"Maria Aparecida Poltieire de Oliveira", service:"Massagem", phone:"11 98079-8011"},
+      {biz:"Vanessa Cristine Silva", service:"Nutrição · atendimentos nutricionais", phone:"11 98324-0319"},
+      {biz:"Espaço Pam Alves", who:"Pamela Christine", service:"Manicure (autônoma)", phone:"11 98815-3751", ig:"espacopam.alves"},
+    ]
+  },
+  {
+    cat:"Alimentação", tab:"07",
+    items:[
+      {biz:"Ana Carolina de Abreu Viegas", service:"Confeitaria", phone:"11 96197-0056"},
+      {biz:"Domingos Auricede Melo Ferreira", service:"Açougue", phone:"11 94607-1163"},
+      {biz:"Marlene Serrano", service:"Restaurante", phone:"11 96077-2257"},
+      {biz:"Osias José Antonio", service:"Gastronomia", phone:"11 95920-6486"},
+      {biz:"Valdete da Costa Pinheiro", service:"Alimentação", phone:"11 98014-1212"},
+      {biz:"Tatiane Ferraz de Oliveira", service:"Doces e salgados", phone:"11 96920-0777"},
+      {biz:"Rodrigo dos Santos", service:"Doces", phone:"11 91200-5425"},
+    ]
+  },
+  {
+    cat:"Moda, Presentes & Personalizados", tab:"08",
+    items:[
+      {biz:"Kelly de Amorim Paes", service:"Personalizados e estamparia", phone:"11 99470-0385"},
+      {biz:"Samuel Paes Andrade", service:"Estamparia", phone:"11 97654-3669"},
+      {biz:"Primeiro Traço Personalizados", service:"Produtos personalizados", ig:"primeirotracopersonalizados"},
+      {biz:"Isabella Rabelo dos Santos", service:"Presentes bordados personalizados · pronta entrega", phone:"11 98063-7930"},
+      {biz:"Damaris Santos de Lima Melo", service:"Vendas de roupas", phone:"11 96206-9611"},
+      {biz:"Julio Ribeiro dos Santos", service:"Brechó", phone:"11 96084-7837"},
+      {biz:"Vanildo dos Santos", service:"Estamparia e texturização têxtil", phone:"11 96335-2830"},
+      {biz:"Ótica Capital", who:"Paulo Cesar Beltramelo da Silva", service:"Setor ótico", phone:"11 96508-8996", ig:"oticacapital.sp"},
+    ]
+  },
+  {
+    cat:"Educação & Tecnologia", tab:"09",
+    items:[
+      {biz:"Daura Daniele de Camargo", service:"Aulas particulares · alfabetização e matemática (até 7º ano)", phone:"11 98497-1850"},
+      {biz:"Virginia Center School", service:"Curso de inglês", ig:"virginiacenterschool"},
+      {biz:"Sandra Bertoline Melo Ferreira", service:"Preparação para testes internacionais", phone:"11 97442-7749"},
+      {biz:"Ivo Oliveira dos Santos", service:"Desenvolvimento de software sob medida e SaaS", phone:"11 97079-0183"},
+      {biz:"Church System", service:"Sistema de gestão para igrejas (membros, finanças, eventos)", site:"https://churchsystem.com.br"},
+    ]
+  },
+  {
+    cat:"Serviços Profissionais & Diversos", tab:"10",
+    items:[
+      {biz:"Alexandre Marreiro Rocha", service:"Suporte de TI", phone:"11 99637-2271"},
+      {biz:"Evandro A. Carvalho de Oliveira", service:"Serviços para condomínio e mentoria para empresários", phone:"11 94860-4063"},
+      {biz:"Nubia Cristina de Camargo", service:"Marketing e Branding (@nucamargo_)", phone:"11 98364-2225"},
+      {biz:"Maria Ferreira Moreira", service:"Higiene, limpeza, descartáveis e embalagens", phone:"11 94064-7853"},
+      {biz:"José Gomes da Cruz", service:"Metalúrgica / ferramentaria", phone:"11 99846-7707"},
+      {biz:"José Luíz Braga Ferreira", service:"Mecânica automotiva", phone:"11 5381-8419"},
+      {biz:"Vera Lucia Pereira de Moraes", service:"Arte", phone:"11 92677-8584"},
+      {biz:"Paula Hiroi Kastner", service:"Arte floral", phone:"11 95048-7286"},
+      {biz:"Claudinei Lopes de Souza", service:"Escritor cristão · livro já lançado", phone:"11 98153-7026"},
+      {biz:"Rosângela Datti Lopes da Cruz", service:"Aromas e difusores", phone:"11 99705-4999"},
+      {biz:"Gyros 24/7", service:"Stands para feiras e eventos", ig:"gyros247"},
+    ]
+  },
+];
+
+const OTHERS = [
+  ["Priscila Chabaribery Rosa","11 96423-5385"],
+  ["Maria Helena de Oliveira","11 97205-7094"],
+  ["Rosangela Oliveira Santos","11 92154-3004"],
+  ["Paulo Moreira","11 99332-7072"],
+  ["Clayton Cruz","11 95134-0681"],
+];
+
+function waNumber(raw){
+  let d = raw.replace(/\D/g,"");
+  if(!d.startsWith("55")) d = "55"+d;
+  return d;
+}
+
+const nav = document.getElementById("indexNav");
+const main = document.getElementById("main");
+
+DATA.forEach((group, gi)=>{
+  const id = "cat"+gi;
+  const a = document.createElement("a");
+  a.href = "#"+id;
+  a.textContent = group.tab+" · "+group.cat.split(",")[0].split("&")[0].trim();
+  nav.appendChild(a);
+
+  const sec = document.createElement("section");
+  sec.className = "cat";
+  sec.id = id;
+
+  const head = document.createElement("div");
+  head.className = "cat-head";
+  head.innerHTML = `<span class="cat-tab">${group.tab}</span><h2>${group.cat}</h2>`;
+  sec.appendChild(head);
+
+  const grid = document.createElement("div");
+  grid.className = "grid";
+
+  group.items.forEach(it=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    let actions = "";
+    if(it.phone){
+      actions += `<a class="btn btn-wa" target="_blank" href="https://wa.me/${waNumber(it.phone)}">💬 WhatsApp</a>`;
+    }
+    if(it.channel){
+      actions += `<a class="btn btn-wa" target="_blank" href="${it.channel}">📣 Canal WhatsApp</a>`;
+    }
+    if(it.ig){
+      actions += `<a class="btn btn-ig" target="_blank" href="https://instagram.com/${it.ig}">📸 @${it.ig}</a>`;
+    }
+    if(it.site){
+      actions += `<a class="btn btn-site" target="_blank" href="${it.site}">🌐 Site</a>`;
+    }
+    card.innerHTML = `
+      <div class="biz">${it.biz}</div>
+      ${it.who ? `<div class="who">${it.who}</div>` : ""}
+      <div class="service">${it.service || ""}</div>
+      <div class="actions">${actions}</div>
+      ${it.phone ? `<div class="phone">${it.phone}${it.extra ? " · "+it.extra : ""}</div>` : (it.extra ? `<div class="phone">${it.extra}</div>` : "")}
+    `;
+    grid.appendChild(card);
+  });
+
+  sec.appendChild(grid);
+  main.appendChild(sec);
+});
+
+if(OTHERS.length){
+  document.getElementById("othersWrap").style.display = "block";
+  const list = document.getElementById("othersList");
+  OTHERS.forEach(([name,phone])=>{
+    const d = document.createElement("div");
+    d.innerHTML = `${name}<span>${phone}</span>`;
+    list.appendChild(d);
+  });
+}
+</script>
+
 </body>
 </html>
