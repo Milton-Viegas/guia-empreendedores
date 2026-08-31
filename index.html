@@ -31,8 +31,6 @@
     font-family:'Inter',sans-serif;
     -webkit-font-smoothing:antialiased;
   }
-
-  /* ---------- HEADER ---------- */
   header{
     padding:52px 20px 34px;
     text-align:center;
@@ -66,8 +64,6 @@
     font-size:15px;
     line-height:1.55;
   }
-
-  /* ---------- INDEX / ROLODEX TABS ---------- */
   nav.index{
     position:sticky;
     top:0;
@@ -96,14 +92,11 @@
     color:var(--gold);
     border-bottom-color:var(--gold);
   }
-
-  /* ---------- MAIN ---------- */
   main{
     max-width:900px;
     margin:0 auto;
     padding:36px 16px 80px;
   }
-
   section.cat{
     scroll-margin-top:52px;
     margin-bottom:44px;
@@ -132,13 +125,11 @@
     color:var(--paper);
     margin:0;
   }
-
   .grid{
     display:grid;
     grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
     gap:14px;
   }
-
   .card{
     background:var(--paper);
     border-radius:10px;
@@ -205,8 +196,6 @@
     font-size:11.5px;
     color:var(--ink-soft);
   }
-
-  /* ---------- FOOTER / NOTE ---------- */
   .note{
     max-width:900px;
     margin:0 auto 40px;
@@ -248,7 +237,6 @@
     font-size:11px;
     margin-top:2px;
   }
-
   footer{
     text-align:center;
     color:#8592A3;
@@ -256,7 +244,6 @@
     padding:20px 20px 44px;
     font-family:'JetBrains Mono',monospace;
   }
-
   @media(max-width:480px){
     header{padding:40px 16px 24px;}
     .cat-head h2{font-size:22px;}
@@ -264,30 +251,23 @@
 </style>
 </head>
 <body>
-
 <header>
   <div class="eyebrow">Rede de Empreendedores · Grupo do WhatsApp</div>
   <h1>Precisa de algo?<br><em>A gente tem no grupo.</em></h1>
   <p>Guia rápido de contatos indicados por pessoas do nosso grupo. Toque na categoria para pular direto até ela, ou role a página. Antes de fechar negócio, combine tudo direto com cada profissional.</p>
 </header>
-
 <nav class="index" id="indexNav"></nav>
-
 <main id="main"></main>
-
 <div class="others" id="othersWrap" style="display:none;">
   <h2>Também estão no grupo (ramo em definição)</h2>
   <div class="others-list" id="othersList"></div>
 </div>
-
 <div class="note">
   ✅ Dados reunidos a partir das artes/cartões enviados no grupo e da lista de inscrição do encontro de empreendedores.<br>
   🙅 Números não são repetidos: quando dois cadastros bateram o mesmo telefone, foram unidos em um único contato.<br>
   ✍️ Achou um dado errado ou quer entrar na lista? É só avisar no grupo que a gente atualiza.
 </div>
-
 <footer>GUIA ATUALIZADO EM AGOSTO / 2026 — FEITO PELO E PARA O GRUPO</footer>
-
 <script>
 const DATA = [
   {
@@ -298,6 +278,9 @@ const DATA = [
       {biz:"Rogério Juren", service:"Manutenção e instalação predial · portões, interfone, câmeras, alarmes", phone:"11 99112-5638"},
       {biz:"Alexandre Almeida", service:"Móveis planejados", phone:"11 96045-7182"},
       {biz:"Presente Ideal", who:"Ingrid Benigno de Oliveira", service:"Presentes e decoração", phone:"11 93148-6025", ig:"presente_ideal2025"},
+      {biz:"Eletricista José Edson Ribeiro", service:"Soluções elétricas residenciais · Zona Norte, São Paulo", phone:"11 93205-0554", ig:"eletrica.jribeiro22", extra:"eletrica.jribeiro22@gmail.com"},
+      {biz:"NewHouse Serviços em Geral", who:"Paulo", service:"Manutenção, instalações e reparos em geral · elétrica, hidráulica, montagem, pequenas reformas", phone:"11 93201-1302", ig:"newhouse.servicos"},
+      {biz:"Dedetizadora Edivaldo Alves", service:"Controle de pragas urbanas · roedores, insetos, cupim, baratas, aranhas, formigas", phone:"11 95223-6881"},
     ]
   },
   {
@@ -324,6 +307,8 @@ const DATA = [
     items:[
       {biz:"NMN Turismo", who:"Marilsen", service:"Passagens, hospedagem, pacotes nacionais e internacionais", phone:"11 96868-7443", ig:"nmn_turismo", extra:"turismonmn@gmail.com"},
       {biz:"Wagner de Oliveira", service:"Agente de viagens · aéreo, traslado, hospedagem, aluguel de carro", phone:"11 98024-1333"},
+      {biz:"Rosalia de Vasconcelos", service:"Agente de viagens · realiza a viagem dos seus sonhos", phone:"11 96624-9293"},
+      {biz:"Hadassa Viagens", who:"Rogério Juren", service:"Pacotes de viagem · próxima excursão: Israel, a Terra Santa (22 a 28/out)", phone:"11 99112-5638"},
     ]
   },
   {
@@ -334,13 +319,16 @@ const DATA = [
     ]
   },
   {
-    cat:"Saúde & Bem-estar", tab:"06",
+    cat:"Saúde, Beleza & Bem-estar", tab:"06",
     items:[
       {biz:"Terapeuta Agnaldo", service:"Psicanalista clínico · atendimento presencial ou online", phone:"11 96666-8386"},
       {biz:"Eli de Castro & Taitiane Poltieire", service:"Pilates, fisioterapia e massagem", phone:"11 94018-6272"},
       {biz:"Maria Aparecida Poltieire de Oliveira", service:"Massagem", phone:"11 98079-8011"},
       {biz:"Vanessa Cristine Silva", service:"Nutrição · atendimentos nutricionais", phone:"11 98324-0319"},
       {biz:"Espaço Pam Alves", who:"Pamela Christine", service:"Manicure (autônoma)", phone:"11 98815-3751", ig:"espacopam.alves"},
+      {biz:"Giovana Miltos", service:"Estética facial · limpeza de pele, microagulhamento", phone:"11 96427-9852", ig:"giovanamiltos"},
+      {biz:"Rafa Unhas", who:"Rafaela", service:"Manicure", phone:"11 98838-7916"},
+      {biz:"Studio Adriano França", who:"Adriano", service:"Cabeleireiro", phone:"11 98012-7202"},
     ]
   },
   {
@@ -384,18 +372,17 @@ const DATA = [
       {biz:"Alexandre Marreiro Rocha", service:"Suporte de TI", phone:"11 99637-2271"},
       {biz:"Evandro A. Carvalho de Oliveira", service:"Serviços para condomínio e mentoria para empresários", phone:"11 94860-4063"},
       {biz:"Nubia Cristina de Camargo", service:"Marketing e Branding (@nucamargo_)", phone:"11 98364-2225"},
-      {biz:"Maria Ferreira Moreira", service:"Higiene, limpeza, descartáveis e embalagens", phone:"11 94064-7853"},
+      {biz:"Maria Ferreira Moreira / Distribuidora Moreira Brasil", who:"Pr. Paulo Moreira", service:"Higiene, embalagens, produtos de limpeza, descartáveis e produtos para escritório", phone:"11 94064-7853", ig:"moreirabrasil_distribuidora"},
       {biz:"José Gomes da Cruz", service:"Metalúrgica / ferramentaria", phone:"11 99846-7707"},
       {biz:"José Luíz Braga Ferreira", service:"Mecânica automotiva", phone:"11 5381-8419"},
       {biz:"Vera Lucia Pereira de Moraes", service:"Arte", phone:"11 92677-8584"},
       {biz:"Paula Hiroi Kastner", service:"Arte floral", phone:"11 95048-7286"},
-      {biz:"Claudinei Lopes de Souza", service:"Escritor cristão · livro já lançado", phone:"11 98153-7026"},
+      {biz:"Claudinei Lopes de Souza", service:"Escritor cristão · livro já lançado · também indica motoristas para a MRP Mobi", phone:"11 98153-7026"},
       {biz:"Rosângela Datti Lopes da Cruz", service:"Aromas e difusores", phone:"11 99705-4999"},
       {biz:"Gyros 24/7", service:"Stands para feiras e eventos", ig:"gyros247"},
     ]
   },
 ];
-
 const OTHERS = [
   ["Priscila Chabaribery Rosa","11 96423-5385"],
   ["Maria Helena de Oliveira","11 97205-7094"],
@@ -403,35 +390,28 @@ const OTHERS = [
   ["Paulo Moreira","11 99332-7072"],
   ["Clayton Cruz","11 95134-0681"],
 ];
-
 function waNumber(raw){
   let d = raw.replace(/\D/g,"");
   if(!d.startsWith("55")) d = "55"+d;
   return d;
 }
-
 const nav = document.getElementById("indexNav");
 const main = document.getElementById("main");
-
 DATA.forEach((group, gi)=>{
   const id = "cat"+gi;
   const a = document.createElement("a");
   a.href = "#"+id;
   a.textContent = group.tab+" · "+group.cat.split(",")[0].split("&")[0].trim();
   nav.appendChild(a);
-
   const sec = document.createElement("section");
   sec.className = "cat";
   sec.id = id;
-
   const head = document.createElement("div");
   head.className = "cat-head";
   head.innerHTML = `<span class="cat-tab">${group.tab}</span><h2>${group.cat}</h2>`;
   sec.appendChild(head);
-
   const grid = document.createElement("div");
   grid.className = "grid";
-
   group.items.forEach(it=>{
     const card = document.createElement("div");
     card.className = "card";
@@ -457,11 +437,9 @@ DATA.forEach((group, gi)=>{
     `;
     grid.appendChild(card);
   });
-
   sec.appendChild(grid);
   main.appendChild(sec);
 });
-
 if(OTHERS.length){
   document.getElementById("othersWrap").style.display = "block";
   const list = document.getElementById("othersList");
@@ -472,6 +450,5 @@ if(OTHERS.length){
   });
 }
 </script>
-
 </body>
 </html>
